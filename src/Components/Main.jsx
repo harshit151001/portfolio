@@ -29,7 +29,7 @@ const Container = styled.div`
   padding: 2rem;
 `;
 
-const Contact = styled(NavLink)`
+const Contact = styled.a`
   color: ${(props) => props.theme.text};
   position: absolute;
   top: 2rem;
@@ -42,7 +42,7 @@ const Blog = styled(NavLink)`
   color: ${(props) => props.theme.text};
   position: absolute;
   top: 50%;
-  right: calc(1rem + 2vw);
+  right: -2rem;
   transform: rotate(90deg) translate(-50%, -50%);
   text-decoration: none;
   z-index: 1;
@@ -51,7 +51,7 @@ const Work = styled(NavLink)`
   color: ${(props) => (props.click ? props.theme.body : props.theme.text)};
   position: absolute;
   top: 50%;
-  left: 2rem;
+  left: -2rem;
   transform: translate(-50%, -50%) rotate(90deg);
   text-decoration: none;
   z-index: 1;
@@ -59,7 +59,7 @@ const Work = styled(NavLink)`
 
 const BottomBar = styled.div`
   position: absolute;
-  bottom: 1rem;
+  bottom: -2rem;
   left: 0;
   right: 0;
   width: 100%;
@@ -157,30 +157,47 @@ const Main = () => {
 
         <Contact
           target="_blank"
-          to={{ pathname: "mailto:harshitshukla151001@gmail.com" }}>
+          href="mailto:harshitshukla151001@gmail.com"
+          rel="noreferrer">
           <motion.h2 whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
             Say Hi...
           </motion.h2>
         </Contact>
         <Blog to="/blog">
-          <motion.h2 whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
+          <motion.h2
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            transition={{ delay: 0.3 }}
+            animate={{ y: "4.5rem" }}>
             Blog
           </motion.h2>
         </Blog>
         <Work to="/work" click={click}>
-          <motion.h2 whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
+          <motion.h2
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            transition={{ delay: 0.3 }}
+            animate={{ y: "-4.5rem" }}>
             Work
           </motion.h2>
         </Work>
 
         <BottomBar>
           <About to="/about" click={click}>
-            <motion.h2 whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
+            <motion.h2
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              transition={{ delay: 0.3 }}
+              animate={{ y: "-4rem" }}>
               About.
             </motion.h2>
           </About>
           <Skills to="/myskills">
-            <motion.h2 whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
+            <motion.h2
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              transition={{ delay: 0.3 }}
+              animate={{ y: "-4rem" }}>
               My Skills.
             </motion.h2>
           </Skills>

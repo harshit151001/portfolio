@@ -42,18 +42,18 @@ const SocialIcons = (props) => {
       </div>
 
       <div>
-        <NavLink
+        <a
           style={{ color: "inherit" }}
           target="_blank"
-          to={{ pathname: "https://www.twitter.com/atharva_ajit" }}>
+          href="https://www.github.com/harshit151001"
+          rel="noreferrer">
           <Twitter
             width={25}
             height={25}
             fill={props.theme === "dark" ? darkTheme.text : darkTheme.body}
           />
-        </NavLink>
+        </a>
       </div>
-
       <Line color={props.theme} />
     </Icons>
   );

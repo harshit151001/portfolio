@@ -20,7 +20,29 @@ const Icons = styled.div`
 `;
 
 const Icon = styled(motion.div)`
-  margin-bottom: 1rem;
+  margin-bottom: 1.2rem;
+  scale: 0;
+  animation: animate 0.5s forwards;
+
+  &:nth-child(1) {
+    animation-delay: 1s;
+  }
+
+  &:nth-child(2) {
+    animation-delay: 1.2s;
+  }
+
+  @keyframes animate {
+    0% {
+      scale: 0;
+    }
+    75% {
+      scale: 1.5;
+    }
+    100% {
+      scale: 1;
+    }
+  }
 `;
 
 const Line = styled(motion.span)`
@@ -37,10 +59,7 @@ const Line = styled(motion.span)`
 const SocialIcons = (props) => {
   return (
     <Icons>
-      <Icon
-        initial={{ transform: "scale(0)" }}
-        animate={{ transform: "scale(1)" }}
-        transition={{ type: "spring", duration: 1, delay: 1 }}>
+      <Icon>
         <a
           style={{ color: "inherit" }}
           target="_blank"
@@ -54,10 +73,7 @@ const SocialIcons = (props) => {
         </a>
       </Icon>
 
-      <Icon
-        initial={{ transform: "scale(0)" }}
-        animate={{ transform: "scale(1)" }}
-        transition={{ type: "spring", duration: 1, delay: 1.2 }}>
+      <Icon>
         <a
           style={{ color: "inherit" }}
           target="_blank"

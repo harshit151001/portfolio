@@ -1,3 +1,4 @@
+import React from "react";
 import { NavLink } from "react-router-dom";
 import styled, { keyframes } from "styled-components";
 import LogoComponent from "../SubComponents/LogoComponent";
@@ -42,7 +43,7 @@ const Blog = styled(NavLink)`
   color: ${(props) => props.theme.text};
   position: absolute;
   top: 50%;
-  right: -2rem;
+  right: 2rem;
   transform: rotate(90deg) translate(-50%, -50%);
   text-decoration: none;
   z-index: 1;
@@ -51,7 +52,7 @@ const Work = styled(NavLink)`
   color: ${(props) => (props.click ? props.theme.body : props.theme.text)};
   position: absolute;
   top: 50%;
-  left: -2rem;
+  left: 2.5rem;
   transform: translate(-50%, -50%) rotate(90deg);
   text-decoration: none;
   z-index: 1;
@@ -59,7 +60,7 @@ const Work = styled(NavLink)`
 
 const BottomBar = styled.div`
   position: absolute;
-  bottom: -2rem;
+  bottom: 1rem;
   left: 0;
   right: 0;
   width: 100%;
@@ -125,12 +126,10 @@ const DarkDiv = styled.div`
   transition: height 0.5s ease, width 1s ease 0.5s;
 `;
 
-const ClickHere = styled.span`
-  margin-top: 1rem;
+const ClickHere = styled.div`
+  margin-top: 1.5rem;
   font-size: 1rem;
-  display: ${(props) => (props.click ? "none" : "inline-block")};
 `;
-
 const Main = () => {
   const [click, setClick] = useState(false);
   const handleClick = () => {
@@ -151,33 +150,54 @@ const Main = () => {
             height={click ? 120 : 200}
             fill="currentColor"
           />
-
-          <ClickHere click={click}>Click here!</ClickHere>
+          <ClickHere>Click here..</ClickHere>
         </Center>
 
         <Contact
           target="_blank"
           href="mailto:harshitshukla151001@gmail.com"
-          rel="noreferrer">
-          <motion.h2 whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
+          rel="noopener">
+          <motion.h2
+            initial={{
+              y: -200,
+              transition: { type: "spring", duration: 1.5, delay: 1 },
+            }}
+            animate={{
+              y: 0,
+              transition: { type: "spring", duration: 1.5, delay: 1 },
+            }}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}>
             Say Hi...
           </motion.h2>
         </Contact>
         <Blog to="/blog">
           <motion.h2
+            initial={{
+              y: -200,
+              transition: { type: "spring", duration: 1.5, delay: 1 },
+            }}
+            animate={{
+              y: 0,
+              transition: { type: "spring", duration: 1.5, delay: 1 },
+            }}
             whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
-            transition={{ delay: 0.3 }}
-            animate={{ y: "4.5rem" }}>
+            whileTap={{ scale: 0.9 }}>
             Blog
           </motion.h2>
         </Blog>
         <Work to="/work" click={click}>
           <motion.h2
+            initial={{
+              y: 200,
+              transition: { type: "spring", duration: 1.5, delay: 1 },
+            }}
+            animate={{
+              y: 0,
+              transition: { type: "spring", duration: 1.5, delay: 1 },
+            }}
             whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
-            transition={{ delay: 0.3 }}
-            animate={{ y: "-4.5rem" }}>
+            whileTap={{ scale: 0.9 }}>
             Work
           </motion.h2>
         </Work>
@@ -185,19 +205,31 @@ const Main = () => {
         <BottomBar>
           <About to="/about" click={click}>
             <motion.h2
+              initial={{
+                y: 200,
+                transition: { type: "spring", duration: 1.5, delay: 1 },
+              }}
+              animate={{
+                y: 0,
+                transition: { type: "spring", duration: 1.5, delay: 1 },
+              }}
               whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-              transition={{ delay: 0.3 }}
-              animate={{ y: "-4rem" }}>
+              whileTap={{ scale: 0.9 }}>
               About.
             </motion.h2>
           </About>
           <Skills to="/myskills">
             <motion.h2
+              initial={{
+                y: 200,
+                transition: { type: "spring", duration: 1.5, delay: 1 },
+              }}
+              animate={{
+                y: 0,
+                transition: { type: "spring", duration: 1.5, delay: 1 },
+              }}
               whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-              transition={{ delay: 0.3 }}
-              animate={{ y: "-4rem" }}>
+              whileTap={{ scale: 0.9 }}>
               My Skills.
             </motion.h2>
           </Skills>

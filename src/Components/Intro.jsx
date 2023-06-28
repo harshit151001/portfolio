@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import Me from "../assets/Images/profile-img.png";
 import { motion } from "framer-motion";
+import { darkTheme } from "./Themes";
 
 const Box = styled(motion.div)`
   position: absolute;
@@ -32,10 +33,17 @@ const Box = styled(motion.div)`
   z-index: 1;
 `;
 
-const SubBox = styled.div`
+const SubBox = styled(motion.div)`
   width: 50%;
   position: relative;
   display: flex;
+
+  &:nth-child(1) {
+    padding-left: 32px;
+  }
+  &:nth-child(2) {
+    padding-right: 32px;
+  }
 
   .pic {
     position: absolute;
@@ -70,14 +78,32 @@ const Intro = () => {
       initial={{ height: 0 }}
       animate={{ height: "55vh" }}
       transition={{ type: "spring", duration: 2, delay: 1 }}>
-      <SubBox>
+      <SubBox
+        initial={{
+          borderTop: "0px solid transparent",
+          borderBottom: "0px solid transparent",
+        }}
+        animate={{
+          borderTop: `2px solid ${darkTheme.text}`,
+          borderBottom: `2px solid ${darkTheme.text}`,
+        }}
+        transition={{ type: "spring", duration: 1, delay: 2 }}>
         <Text>
           <h1>Hi,</h1>
           <h3>I'm Harshit Shukla,</h3>
-          <h6>I code simple and beautiful websites</h6>
+          <h6>I am smart and diligent developer</h6>
         </Text>
       </SubBox>
-      <SubBox>
+      <SubBox
+        initial={{
+          borderTop: "0px solid transparent",
+          borderBottom: "0px solid transparent",
+        }}
+        animate={{
+          borderTop: `2px solid ${darkTheme.body}`,
+          borderBottom: `2px solid ${darkTheme.body}`,
+        }}
+        transition={{ type: "spring", duration: 1, delay: 2 }}>
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}

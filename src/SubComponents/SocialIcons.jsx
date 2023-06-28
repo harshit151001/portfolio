@@ -1,6 +1,8 @@
+import { motion } from "framer-motion";
+import React from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
-import { Github, Twitter } from "../Components/AllSvgs";
+import { Github, LinkedIn, Twitter } from "../Components/AllSvgs";
 import { darkTheme } from "../Components/Themes";
 
 const Icons = styled.div`
@@ -12,49 +14,77 @@ const Icons = styled.div`
   left: 2rem;
   z-index: 3;
 
-  & > div:not(:last-child) {
-    margin: 0.5rem 0;
+  & > *not(:last-child) {
+    margin: 1rem 0;
   }
 `;
 
-const Line = styled.span`
+const Icon = styled(motion.div)`
+  margin-bottom: 1rem;
+`;
+
+const Line = styled(motion.span)`
   width: 0.2rem;
-  height: 8rem;
-  background-color: ${(props) =>
-    props.color === "dark" ? darkTheme.text : darkTheme.body};
+  height: 60px;
+  background-color: ${(props) => {
+    if (props.color) {
+      return props.color;
+    }
+    return props.theme === "dark" ? props.theme.body : props.theme.text;
+  }};
 `;
 
 const SocialIcons = (props) => {
   return (
     <Icons>
-      <div>
+      <Icon
+        initial={{ transform: "scale(0)" }}
+        animate={{ transform: "scale(1)" }}
+        transition={{ type: "spring", duration: 1, delay: 1 }}>
         <a
           style={{ color: "inherit" }}
           target="_blank"
           href="https://www.github.com/harshit151001"
-          rel="noreferrer">
+          rel="noopener noreferrer">
           <Github
             width={25}
             height={25}
             fill={props.theme === "dark" ? darkTheme.text : darkTheme.body}
           />
         </a>
-      </div>
+      </Icon>
 
-      <div>
+      <Icon
+        initial={{ transform: "scale(0)" }}
+        animate={{ transform: "scale(1)" }}
+        transition={{ type: "spring", duration: 1, delay: 1.2 }}>
         <a
           style={{ color: "inherit" }}
           target="_blank"
-          href="https://www.github.com/harshit151001"
-          rel="noreferrer">
-          <Twitter
+          href="https://www.linkedin.com/in/harshit--shukla/"
+          rel="noopener noreferrer">
+          <LinkedIn
             width={25}
             height={25}
             fill={props.theme === "dark" ? darkTheme.text : darkTheme.body}
           />
         </a>
-      </div>
-      <Line color={props.theme} />
+      </Icon>
+
+      <Line
+        color={props.theme === "dark" && darkTheme.text}
+        initial={{
+          height: 0,
+        }}
+        animate={{
+          height: "8rem",
+        }}
+        transition={{
+          type: "spring",
+          duration: 1,
+          delay: 0.8,
+        }}
+      />
     </Icons>
   );
 };

@@ -1,9 +1,7 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 
-const Box = styled(motion(NavLink))`
+const Box = styled(motion.div)`
   width: calc(10rem + 15vw);
   text-decoration: none;
   height: 20rem;
@@ -16,6 +14,7 @@ const Box = styled(motion(NavLink))`
   display: flex;
   flex-direction: column;
   z-index: 5;
+  transition: all 0.2s ease;
 
   &:hover {
     color: ${(props) => props.theme.body};
@@ -59,8 +58,6 @@ const Date = styled.span`
   padding: 0.5 0;
 `;
 
-const Container = styled(motion.div)``;
-
 const Item = {
   hidden: {
     scale: 0,
@@ -75,19 +72,18 @@ const Item = {
 };
 
 const BlogComponent = (props) => {
+  // eslint-disable-next-line react/prop-types
   const { name, tags, date, imageSrc, link } = props.blog;
   return (
-    <Container>
-      <Box target="_blank" to={{ pathname: link }} variants={Item}>
-        <Image img={imageSrc} />
-        <Title>{name}</Title>
-        <Hashtags>
-          {tags.map((t, id) => {
-            return <Tag key={id}>#{t}</Tag>;
-          })}
-        </Hashtags>
-      </Box>
-    </Container>
+    <Box target="_blank" variants={Item}>
+      <Image img={imageSrc} />
+      <Title>{name}</Title>
+      <Hashtags>
+        {tags.map((t, id) => {
+          return <Tag key={id}>#{t}</Tag>;
+        })}
+      </Hashtags>
+    </Box>
   );
 };
 

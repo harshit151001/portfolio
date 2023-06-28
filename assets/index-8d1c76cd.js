@@ -290,7 +290,7 @@ body {
   width: 100%;
   height: 100vh;
   padding-bottom: 5rem;
-`,k2=()=>_.jsx(w2,{children:_.jsxs(S2,{children:[_.jsx(Gh,{}),_.jsx(Kh,{}),_.jsx(Qh,{})]})}),C2=()=>_.jsx("div",{children:"MySkillsPage Component / Page "});function P2(){return _.jsxs(_.Fragment,{children:[_.jsx($y,{}),_.jsx(Ny,{theme:zy,children:_.jsxs(Rv,{children:[_.jsx(Xn,{exact:!0,path:"/",Component:g2}),_.jsx(Xn,{exact:!0,path:"/about",Component:y2}),_.jsx(Xn,{exact:!0,path:"/work",Component:v2}),_.jsx(Xn,{exact:!0,path:"/blog",Component:k2}),_.jsx(Xn,{exact:!0,path:"/skills",Component:C2})]})})]})}var mm={exports:{}},ot={},gm={exports:{}},ym={};/**
+`,k2=()=>_.jsx(w2,{children:_.jsxs(S2,{children:[_.jsx(Gh,{}),_.jsx(Kh,{}),_.jsx(Qh,{})]})}),C2=()=>_.jsx("div",{children:"MySkillsPage Component / Page "});function P2(){return _.jsxs(_.Fragment,{children:[_.jsx($y,{}),_.jsx(Ny,{theme:zy,children:_.jsxs(Rv,{children:[_.jsx(Xn,{exact:!0,path:"/portfolio",Component:g2}),_.jsx(Xn,{exact:!0,path:"/about",Component:y2}),_.jsx(Xn,{exact:!0,path:"/work",Component:v2}),_.jsx(Xn,{exact:!0,path:"/blog",Component:k2}),_.jsx(Xn,{exact:!0,path:"/skills",Component:C2})]})})]})}var mm={exports:{}},ot={},gm={exports:{}},ym={};/**
  * @license React
  * scheduler.production.min.js
  *
